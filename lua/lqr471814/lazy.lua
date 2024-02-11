@@ -16,8 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Actual plugin definition
 
 require("lazy").setup({
-	"tpope/vim-sleuth",
-	"windwp/nvim-ts-autotag",
+    "tpope/vim-sleuth",
+    "windwp/nvim-ts-autotag",
     {
         "rebelot/kanagawa.nvim",
         config = function()
@@ -30,7 +30,7 @@ require("lazy").setup({
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end,
     },
-	{
+    {
         "JoosepAlviste/nvim-ts-context-commentstring",
         event = "VeryLazy"
     },

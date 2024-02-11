@@ -30,10 +30,11 @@ vim.keymap.set("n", "gy", "\"+y")
 vim.keymap.set("v", "gy", "\"+y")
 vim.keymap.set("n", "gyy", "\"+Y")
 
-vim.keymap.set("n", "gp", "\"+p" )
-vim.keymap.set("v", "gp", "\"+p" )
+vim.keymap.set("n", "gp", "\"+p")
+vim.keymap.set("v", "gp", "\"+p")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set({"n", "v", "i", "x"}, "<C-z>", "<nop>")
+vim.keymap.set({ "n", "v", "i", "x" }, "<C-z>", "<nop>")
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
