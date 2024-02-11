@@ -16,26 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Actual plugin definition
 
 require("lazy").setup({
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = function()
-            local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-            vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-            vim.keymap.set("n", "<leader>ps", function()
-                builtin.grep_string({ search = vim.fn.input("grep > ") })
-            end, {})
-        end
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-            require("lqr471814.plugins.treesitter")
-        end
-    },
+	"tpope/vim-sleuth",
+	"windwp/nvim-ts-autotag",
     {
         "rebelot/kanagawa.nvim",
         config = function()
@@ -48,11 +30,18 @@ require("lazy").setup({
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end,
     },
+	{
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        event = "VeryLazy"
+    },
     {
         "numToStr/Comment.nvim",
         lazy = false,
+        dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         config = function()
-            require("Comment").setup()
+            require("Comment").setup({
+                pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+            })
         end
     },
     {
@@ -62,7 +51,7 @@ require("lazy").setup({
             require("nvim-surround").setup({})
         end
     },
+    require("lqr471814.plugins.telescope"),
+    require("lqr471814.plugins.treesitter"),
     require("lqr471814.plugins.lsp"),
-    require("lqr471814.plugins.snippets"),
-    require("lqr471814.plugins.autocomplete"),
 })
