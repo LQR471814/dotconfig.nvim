@@ -51,6 +51,23 @@ require("lazy").setup({
             require("nvim-surround").setup({})
         end
     },
+    {
+        "smoka7/multicursors.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            'smoka7/hydra.nvim',
+        },
+        opts = {},
+        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+        keys = {
+            {
+                mode = { 'v', 'n' },
+                '<Leader>m',
+                '<cmd>MCstart<cr>',
+                desc = 'Create a selection for selected text or word under the cursor',
+            },
+        },
+    },
     require("lqr471814.plugins.telescope"),
     require("lqr471814.plugins.treesitter"),
     require("lqr471814.plugins.lsp"),

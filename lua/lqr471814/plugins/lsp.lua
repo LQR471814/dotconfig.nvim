@@ -23,6 +23,7 @@ return {
             "williamboman/mason-lspconfig.nvim",
             "folke/neodev.nvim",
             "hrsh7th/nvim-cmp",
+            "b0o/schemastore.nvim",
         },
         config = function()
             require("neodev").setup({})
@@ -36,6 +37,14 @@ return {
                         completion = {
                             callSnippet = "Replace"
                         }
+                    }
+                }
+            })
+            require("lspconfig").jsonls.setup({
+                settings = {
+                    json = {
+                        schemas = require('schemastore').json.schemas(),
+                        validate = { enable = true },
                     }
                 }
             })
