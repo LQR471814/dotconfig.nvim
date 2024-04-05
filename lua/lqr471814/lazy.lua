@@ -68,6 +68,7 @@ require("lazy").setup({
             },
         },
     },
+    "kblin/vim-fountain",
     require("lqr471814.plugins.telescope"),
     require("lqr471814.plugins.treesitter"),
     require("lqr471814.plugins.lsp"),
