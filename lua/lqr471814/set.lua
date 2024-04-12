@@ -37,5 +37,5 @@ vim.keymap.set("v", "gp", "\"+p")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set({ "n", "v", "i", "x" }, "<C-z>", "<nop>")
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 
