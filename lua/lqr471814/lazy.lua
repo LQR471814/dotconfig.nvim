@@ -71,8 +71,6 @@ require("lazy").setup({
     {
         'stevearc/oil.nvim',
         opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     "kblin/vim-fountain",
     require("lqr471814.plugins.telescope"),
