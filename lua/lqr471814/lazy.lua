@@ -72,6 +72,12 @@ require("lazy").setup({
         'stevearc/oil.nvim',
         opts = {},
     },
+    {
+        "andrewferrier/wrapping.nvim",
+        config = function()
+            require("wrapping").setup()
+        end
+    },
     "kblin/vim-fountain",
     require("lqr471814.plugins.telescope"),
     require("lqr471814.plugins.treesitter"),
