@@ -27,6 +27,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
+vim.opt.autoread = true
+
 vim.keymap.set("n", "gy", "\"+y")
 vim.keymap.set("v", "gy", "\"+y")
 vim.keymap.set("n", "gyy", "\"+Y")
