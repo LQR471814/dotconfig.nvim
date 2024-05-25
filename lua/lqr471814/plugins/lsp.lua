@@ -72,6 +72,8 @@ return {
                     vim.keymap.set({ "n" }, "<leader>f", function()
                         vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
                     end, opts)
+                    vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+                    vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
                 end,
             })
 
