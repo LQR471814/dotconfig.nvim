@@ -3,10 +3,35 @@ vim.g.mapleader = " "
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = { "*.lua" },
+    callback = function()
+        print("ENTERING LUA")
+    end,
+    nested = true
+})
+
+local function setIndent(files, size, tabs)
+    vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = files,
+        callback = function()
+            if tabs then
+                vim.opt.tabstop = size
+                vim.opt.softtabstop = size
+            else
+                vim.opt.tabstop = size
+                vim.opt.softtabstop = size
+                vim.opt.shiftwidth = size
+                vim.opt.expandtab = true
+            end
+        end
+    })
+end
+
+setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart" }, 2)
+setIndent({ "*.md" }, 3)
+setIndent({ "*.rs", "*.py", "*.lua", "*.sh", "Dockerfile*", "*.html", "*.cpp", "*.c", "*.xml" }, 4)
+setIndent({ "*.go" }, 4, true)
 
 vim.opt.smartindent = true
 
@@ -40,4 +65,3 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set({ "n", "v", "i", "x" }, "<C-z>", "<nop>")
 
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
-
