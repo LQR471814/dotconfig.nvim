@@ -87,7 +87,24 @@ return {
                     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
                     vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
                     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-                    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+
+                    -- rename with a completely different name
+                    vim.keymap.set("n", "<leader>rr", function()
+                        vim.ui.input(
+                            {
+                                prompt = "Rename: ",
+                                default = "",
+                            },
+                            function(input)
+                                if input then
+                                    vim.lsp.buf.rename(input)
+                                end
+                            end
+                        )
+                    end, opts)
+                    -- rename starting with the same name
+                    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+
                     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
                     vim.keymap.set({ "n", "v" }, "<space>.", vim.lsp.buf.code_action, opts)
                     vim.keymap.set({ "n" }, "<leader>f", function()
