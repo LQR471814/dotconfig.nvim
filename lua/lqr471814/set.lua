@@ -17,9 +17,10 @@ local function setIndent(files, size, tabs)
         callback = function()
             if tabs then
                 vim.opt.tabstop = size
-                vim.opt.softtabstop = size
+                vim.opt.shiftwidth = size
+                vim.opt.expandtab = false
             else
-                vim.opt.tabstop = size
+                vim.opt.tabstop = 8
                 vim.opt.softtabstop = size
                 vim.opt.shiftwidth = size
                 vim.opt.expandtab = true
