@@ -30,7 +30,7 @@ end
 
 setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart" }, 2)
 setIndent({ "*.md" }, 3)
-setIndent({ "*.rs", "*.py", "*.lua", "*.sh", "Dockerfile*", "*.html", "*.cpp", "*.c", "*.xml" }, 4)
+setIndent({ "*.rs", "*.py", "*.lua", "*.sh", "Dockerfile*", "*.html", "*.cpp", "*.c", "*.xml", "*.sql" }, 4)
 setIndent({ "*.go" }, 4, true)
 
 vim.opt.smartindent = true
