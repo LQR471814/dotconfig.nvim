@@ -16,116 +16,54 @@ vim.opt.rtp:prepend(lazypath)
 -- Actual plugin definition
 
 require("lazy").setup({
-    "tpope/vim-sleuth",
+    -- rename html tags
     "windwp/nvim-ts-autotag",
+    -- theme
     {
         "rebelot/kanagawa.nvim",
         config = function()
             vim.cmd("colorscheme kanagawa-wave")
         end
     },
+    -- fancy undos
     {
         "mbbill/undotree",
         config = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end,
     },
-    {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        event = "VeryLazy"
-    },
-    {
-        "numToStr/Comment.nvim",
-        lazy = false,
-        dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-        config = function()
-            require("Comment").setup({
-                pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-            })
-        end
-    },
-    {
-        "kylechui/nvim-surround",
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({})
-        end
-    },
-    {
-        "smoka7/multicursors.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            'smoka7/hydra.nvim',
-        },
-        opts = {},
-        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-        keys = {
-            {
-                mode = { 'v', 'n' },
-                '<Leader>m',
-                '<cmd>MCstart<cr>',
-                desc = 'Create a selection for selected text or word under the cursor',
-            },
-        },
-    },
+    -- file explorer
     {
         'stevearc/oil.nvim',
         opts = {},
     },
+    -- line wrap
     {
         "andrewferrier/wrapping.nvim",
         config = function()
             require("wrapping").setup()
         end
     },
+    -- .fountain files support
     "kblin/vim-fountain",
-    {
-        "nvim-pack/nvim-spectre",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            vim.keymap.set('n', '<leader>re', '<cmd>lua require("spectre").toggle()<CR>', {
-                desc = "Toggle Spectre"
-            })
-        end
-    },
-    {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            local harpoon = require("harpoon")
-            harpoon:setup()
-
-            vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-            vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-            vim.keymap.set({ "n", "i" }, "<C-1>", function() harpoon:list():select(1) end)
-            vim.keymap.set({ "n", "i" }, "<C-2>", function() harpoon:list():select(2) end)
-            vim.keymap.set({ "n", "i" }, "<C-3>", function() harpoon:list():select(3) end)
-            vim.keymap.set({ "n", "i" }, "<C-4>", function() harpoon:list():select(4) end)
-
-            -- Toggle previous & next buffers stored within Harpoon list
-            vim.keymap.set({ "n", "i" }, "<C-S-P>", function() harpoon:list():prev() end)
-            vim.keymap.set({ "n", "i" }, "<C-S-N>", function() harpoon:list():next() end)
-        end
-    },
+    -- guess indentation config of a file
     "NMAC427/guess-indent.nvim",
-    {
-        "m4xshen/autoclose.nvim",
-        config = function()
-            require("autoclose").setup({
-                keys = {
-                    ["{"] = { escape = false, close = true, pair = "{}", disabled_filetypes = {} },
-                    ["["] = { escape = false, close = true, pair = "[]", disabled_filetypes = {} },
-                    ["("] = { escape = false, close = true, pair = "()", disabled_filetypes = {} },
-                    ["'"] = { escape = false, close = true, pair = "''", disabled_filetypes = {} },
-                    ['"'] = { escape = false, close = true, pair = '""', disabled_filetypes = {} },
-                    ["`"] = { escape = false, close = true, pair = "``", disabled_filetypes = {} },
-                },
-            })
-        end
-    },
+    -- switch between files
+    require("lqr471814.plugins.harpoon"),
+    -- fuzzy find
     require("lqr471814.plugins.telescope"),
+    -- search and replace
+    require("lqr471814.plugins.spectre"),
+    -- multi-cursors
+    require("lqr471814.plugins.multicursors"),
+    -- auto close brackets
+    require("lqr471814.plugins.autoclose"),
+    -- comments
+    require("lqr471814.plugins.comment"),
+    -- manipulate brackets
+    require("lqr471814.plugins.surround"),
+    -- AST parsing/syntax highlighting
     require("lqr471814.plugins.treesitter"),
+    -- language server
     require("lqr471814.plugins.lsp"),
 })
