@@ -4,12 +4,8 @@ return {
     config = function()
         require("nvim-surround").setup({
             keymaps = {
-                insert = "<C-g>s",
-                insert_line = "<C-g>S",
                 normal = "ys",
                 normal_cur = "yss",
-                normal_line = "yS",
-                normal_cur_line = "ySS",
                 visual = "S",
                 visual_line = "gS",
                 delete = "ds",
@@ -19,3 +15,11 @@ return {
         })
     end
 }
+
+-- quick reference
+-- yss<new> - surround line with <new>
+-- ysiw<new> - surround word with <new>
+-- ysa<thing><new> - surround <thing> with <new>
+-- (in visual mode) S<new> - surround selection with <new>
+-- (in visual line mode) gS<new> - surround each selection with <new>
+-- cs/ds<target><new> - replace <target> with <new>
