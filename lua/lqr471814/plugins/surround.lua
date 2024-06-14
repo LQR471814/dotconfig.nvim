@@ -12,6 +12,17 @@ return {
                 change = "cs",
                 change_line = "cS",
             },
+            -- disables the whitespace in front and back of the thing
+            surrounds = {
+                ["("] = false,
+                ["["] = false,
+                ["{"] = false,
+            },
+            aliases = {
+                ["("] = ")",
+                ["["] = "]",
+                ["{"] = "}",
+            },
         })
     end
 }
