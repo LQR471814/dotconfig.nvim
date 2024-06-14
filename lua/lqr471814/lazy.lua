@@ -99,14 +99,30 @@ require("lazy").setup({
             vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
             vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-            vim.keymap.set({"n", "i"}, "<C-1>", function() harpoon:list():select(1) end)
-            vim.keymap.set({"n", "i"}, "<C-2>", function() harpoon:list():select(2) end)
-            vim.keymap.set({"n", "i"}, "<C-3>", function() harpoon:list():select(3) end)
-            vim.keymap.set({"n", "i"}, "<C-4>", function() harpoon:list():select(4) end)
+            vim.keymap.set({ "n", "i" }, "<C-1>", function() harpoon:list():select(1) end)
+            vim.keymap.set({ "n", "i" }, "<C-2>", function() harpoon:list():select(2) end)
+            vim.keymap.set({ "n", "i" }, "<C-3>", function() harpoon:list():select(3) end)
+            vim.keymap.set({ "n", "i" }, "<C-4>", function() harpoon:list():select(4) end)
 
             -- Toggle previous & next buffers stored within Harpoon list
-            vim.keymap.set({"n", "i"}, "<C-S-P>", function() harpoon:list():prev() end)
-            vim.keymap.set({"n", "i"}, "<C-S-N>", function() harpoon:list():next() end)
+            vim.keymap.set({ "n", "i" }, "<C-S-P>", function() harpoon:list():prev() end)
+            vim.keymap.set({ "n", "i" }, "<C-S-N>", function() harpoon:list():next() end)
+        end
+    },
+    "NMAC427/guess-indent.nvim",
+    {
+        "m4xshen/autoclose.nvim",
+        config = function()
+            require("autoclose").setup({
+                keys = {
+                    ["{"] = { escape = false, close = true, pair = "{}", disabled_filetypes = {} },
+                    ["["] = { escape = false, close = true, pair = "[]", disabled_filetypes = {} },
+                    ["("] = { escape = false, close = true, pair = "()", disabled_filetypes = {} },
+                    ["'"] = { escape = false, close = true, pair = "''", disabled_filetypes = {} },
+                    ['"'] = { escape = false, close = true, pair = '""', disabled_filetypes = {} },
+                    ["`"] = { escape = false, close = true, pair = "``", disabled_filetypes = {} },
+                },
+            })
         end
     },
     require("lqr471814.plugins.telescope"),

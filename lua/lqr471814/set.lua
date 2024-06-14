@@ -3,14 +3,6 @@ vim.g.mapleader = " "
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    pattern = { "*.lua" },
-    callback = function()
-        print("ENTERING LUA")
-    end,
-    nested = true
-})
-
 local function setIndent(files, size, tabs)
     vim.api.nvim_create_autocmd("BufEnter", {
         pattern = files,
@@ -31,8 +23,19 @@ end
 
 setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart" }, 2)
 setIndent({ "*.md" }, 3)
-setIndent({ "*.rs", "*.py", "*.lua", "*.sh", "Dockerfile*", "*.html", "*.cpp", "*.c", "*.xml", "*.sql" }, 4)
-setIndent({ "*.go" }, 4, true)
+setIndent({
+    "*.rs",
+    "*.py",
+    "*.lua",
+    "*.sh",
+    "Dockerfile*",
+    "*.html",
+    "*.cpp",
+    "*.c",
+    "*.xml",
+    "*.sql",
+}, 4)
+setIndent({ "*.go", "Makefile*" }, 4, true)
 
 vim.opt.smartindent = true
 
