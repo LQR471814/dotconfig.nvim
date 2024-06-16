@@ -18,11 +18,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- rename html tags
     "windwp/nvim-ts-autotag",
-    -- theme
+    -- -- theme
     {
-        "rebelot/kanagawa.nvim",
+        "sho-87/kanagawa-paper.nvim",
         config = function()
-            vim.cmd("colorscheme kanagawa-wave")
+            vim.cmd("colorscheme kanagawa-paper")
         end
     },
     -- fancy undos
