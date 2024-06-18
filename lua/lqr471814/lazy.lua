@@ -44,7 +44,13 @@ require("lazy").setup({
             require("wrapping").setup()
         end
     },
-    -- .fountain files support
+    {
+        "johmsalas/text-case.nvim",
+        config = function()
+            require("textcase").setup({})
+            require("telescope").load_extension("textcase")
+        end
+    },
     "kblin/vim-fountain",
     -- guess indentation config of a file
     "NMAC427/guess-indent.nvim",
