@@ -5,3 +5,6 @@ snippet iferr
 snippet span
 	ctx, span := tracer.Start(ctx, "${0}")
 	defer span.End()
+snippet recerr
+	span.RecordError(err)
+	span.SetStatus(codes.Error, "${0}")
