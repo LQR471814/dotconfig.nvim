@@ -7,4 +7,4 @@ snippet span
 	defer span.End()
 snippet recerr
 	span.RecordError(err)
-	span.SetStatus(codes.Error, "${0}")
+	span.SetStatus(codes.Error, ${0:err.Error()})
