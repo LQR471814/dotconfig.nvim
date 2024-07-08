@@ -6,7 +6,7 @@ return {
                 ["{"] = { escape = false, close = true, pair = "{}", disabled_filetypes = {} },
                 ["["] = { escape = false, close = true, pair = "[]", disabled_filetypes = {} },
                 ["("] = { escape = false, close = true, pair = "()", disabled_filetypes = {} },
-                ["'"] = { escape = false, close = true, pair = "''", disabled_filetypes = {} },
+                ["'"] = { escape = false, close = true, pair = "''", disabled_filetypes = { "text", "markdown" } },
                 ['"'] = { escape = false, close = true, pair = '""', disabled_filetypes = {} },
                 ["`"] = { escape = false, close = true, pair = "``", disabled_filetypes = {} },
             },
