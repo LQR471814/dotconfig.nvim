@@ -21,7 +21,7 @@ local function setIndent(files, size, tabs)
     })
 end
 
-setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart" }, 2)
+setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart", "*.proto" }, 2)
 setIndent({ "*.md" }, 3)
 setIndent({
     "*.rs",
@@ -35,7 +35,7 @@ setIndent({
     "*.xml",
     "*.sql",
 }, 4)
-setIndent({ "*.go", "Makefile*", "*.proto" }, 4, true)
+setIndent({ "*.go", "Makefile*" }, 4, true)
 
 vim.opt.smartindent = true
 
