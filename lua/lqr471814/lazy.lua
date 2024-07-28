@@ -51,9 +51,12 @@ require("lazy").setup({
             require("telescope").load_extension("textcase")
         end
     },
+    -- support .fountain files
     "kblin/vim-fountain",
     -- guess indentation config of a file
     "NMAC427/guess-indent.nvim",
+    -- make editing big files faster
+    "LunarVim/bigfile.nvim",
     -- switch between files
     require("lqr471814.plugins.harpoon"),
     -- fuzzy find
