@@ -35,7 +35,7 @@ setIndent({
     "*.xml",
     "*.sql",
 }, 4)
-setIndent({ "*.go", "Makefile*" }, 4, true)
+setIndent({ "*.go", "Makefile*", "*.json5" }, 4, true)
 
 vim.opt.smartindent = true
 
@@ -61,6 +61,7 @@ vim.opt.autoread = true
 vim.keymap.set("n", "gy", "\"+y")
 vim.keymap.set("v", "gy", "\"+y")
 vim.keymap.set("n", "gyy", "\"+Y")
+vim.keymap.set("n", "gyp", "let @\" = expand(\"%\")")
 
 vim.keymap.set("n", "gp", "\"+p")
 vim.keymap.set("v", "gp", "\"+p")
