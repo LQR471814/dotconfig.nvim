@@ -9,6 +9,6 @@ return {
     },
     -- stylua: ignore
     keys = {
-        { "S", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        { "S", mode = { "n" }, function() require("flash").jump() end, desc = "Flash" },
     },
 }
