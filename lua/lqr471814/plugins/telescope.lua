@@ -21,5 +21,7 @@ return {
                 additional_args = { "--iglob", "!.git", "--hidden" }
             })
         end, {})
+
+        vim.keymap.set("n", "<leader>pF", function() builtin.buffers() end)
     end
 }
