@@ -34,6 +34,7 @@ setIndent({
     "*.c",
     "*.xml",
     "*.sql",
+    "*.java",
 }, 4)
 setIndent({ "*.go", "Makefile*", "*.json5" }, 4, true)
 
