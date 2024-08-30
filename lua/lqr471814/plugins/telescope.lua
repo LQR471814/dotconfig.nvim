@@ -23,5 +23,7 @@ return {
         end, {})
 
         vim.keymap.set("n", "<leader>pF", function() builtin.buffers() end)
+
+        vim.keymap.set("n", "<leader>pe", "<CMD>Telescope diagnostics<CR>")
     end
 }
