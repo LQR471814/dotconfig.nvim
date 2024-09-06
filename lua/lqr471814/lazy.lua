@@ -51,6 +51,7 @@ require("lazy").setup({
             require("telescope").load_extension("textcase")
         end
     },
+    "othree/eregex.vim",
     -- support .fountain files
     "kblin/vim-fountain",
     -- guess indentation config of a file
