@@ -49,6 +49,30 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup()
 
+            require("lspconfig").vtsls.setup({
+                settings = {
+                    vtsls = {
+                        experimental = {
+                            completion = {
+                                enableServerSideFuzzyMatch = true
+                            }
+                        }
+                    },
+                    typescript = {
+                        preferences = {
+                            autoImportFileExcludePatterns = {
+                                "**/node_modules/**",
+                                "date-fns",
+                                "date-fns/esm",
+                            }
+                        },
+                        updateImportsOnFileMove = { enabled = "always" },
+                        suggest = {
+                            completeFunctionCalls = true,
+                        },
+                    }
+                }
+            })
             require("lspconfig").lua_ls.setup({
                 settings = {
                     Lua = {
