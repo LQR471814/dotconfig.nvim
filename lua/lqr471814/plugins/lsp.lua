@@ -58,12 +58,21 @@ return {
                             }
                         }
                     },
+                    javascript = {
+                        preferences = {
+                            autoImportFileExcludePatterns = {
+                                "node_modules/**"
+                            }
+                        },
+                        updateImportsOnFileMove = { enabled = "always" },
+                        suggest = {
+                            completeFunctionCalls = true,
+                        },
+                    },
                     typescript = {
                         preferences = {
                             autoImportFileExcludePatterns = {
-                                "**/node_modules/**",
-                                "date-fns",
-                                "date-fns/esm",
+                                "node_modules/**"
                             }
                         },
                         updateImportsOnFileMove = { enabled = "always" },
