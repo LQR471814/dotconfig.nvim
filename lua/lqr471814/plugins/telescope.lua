@@ -6,9 +6,7 @@ return {
     config = function()
         local builtin = require("telescope.builtin")
 
-        vim.keymap.set("n", "<leader>pf", builtin.git_files, {})
-
-        vim.keymap.set("n", "<leader>pg", function()
+        vim.keymap.set("n", "<leader>pf", function()
             builtin.find_files({
                 find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
             })
@@ -22,8 +20,8 @@ return {
             })
         end, {})
 
-        vim.keymap.set("n", "<leader>pF", function() builtin.buffers() end)
-
+        vim.keymap.set("n", "<leader>pg", builtin.git_files)
+        vim.keymap.set("n", "<leader>pb", builtin.buffers)
         vim.keymap.set("n", "<leader>pe", "<CMD>Telescope diagnostics<CR>")
     end
 }
