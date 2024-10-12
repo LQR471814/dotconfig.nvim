@@ -52,6 +52,8 @@ require("lazy").setup({
         end
     },
     "othree/eregex.vim",
+    -- activitywatch
+    "ActivityWatch/aw-watcher-vim",
     -- support .fountain files
     "kblin/vim-fountain",
     -- guess indentation config of a file
