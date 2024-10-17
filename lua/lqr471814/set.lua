@@ -21,7 +21,7 @@ local function setIndent(files, size, tabs)
     })
 end
 
-setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart", "*.proto" }, 2)
+setIndent({ "*.js", "*.svelte", "*.ts", "*.tsx", "*.jsx", "*.json", "*.yaml", "*.dart", "*.proto", "*.nix" }, 2)
 setIndent({ "*.md" }, 3)
 setIndent({
     "*.rs",
@@ -56,7 +56,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 vim.g.mapleader = " "
-vim.g.maplocalleader = "`"
+vim.g.maplocalleader = "'"
 
 vim.opt.autoread = true
 
@@ -72,3 +72,5 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set({ "n", "v", "i", "x" }, "<C-z>", "<nop>")
 
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
+vim.keymap.set("n", "<leader>ni", "<CMD>Neorg index<CR>")
+vim.keymap.set("n", "<leader>no", "<CMD>Neorg return<CR>")
