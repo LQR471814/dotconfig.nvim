@@ -51,6 +51,9 @@ require("lazy").setup({
             require("telescope").load_extension("textcase")
         end
     },
+    -- browser text editor
+    "subnut/nvim-ghost.nvim",
+    -- pcre syntax
     "othree/eregex.vim",
     -- activitywatch
     "ActivityWatch/aw-watcher-vim",
