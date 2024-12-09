@@ -23,5 +23,7 @@ return {
         vim.keymap.set("n", "<leader>pg", builtin.git_files)
         vim.keymap.set("n", "<leader>pb", builtin.buffers)
         vim.keymap.set("n", "<leader>pe", "<CMD>Telescope diagnostics<CR>")
+        vim.keymap.set("n", "<leader>pc", "<CMD>Telescope commands<CR>")
+        vim.keymap.set("n", "<leader>ph", "<CMD>Telescope help_tags<CR>")
     end
 }
