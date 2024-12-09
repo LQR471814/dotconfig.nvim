@@ -14,7 +14,7 @@ return {
 
             -- Automatically install missing parsers when entering buffer
             -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-            auto_install = true,
+            auto_install = false,
 
             autotag = { enable = true, enable_close_on_slash = false },
 
@@ -26,6 +26,7 @@ return {
                 -- Using this option may slow down your editor, and you may see some duplicate highlights.
                 -- Instead of true it can also be a list of languages
                 additional_vim_regex_highlighting = false,
+                disable = { "latex" },
             },
         }
     end

@@ -49,6 +49,7 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup()
 
+            require("lspconfig").texlab.setup {}
             require("lspconfig").vtsls.setup({
                 settings = {
                     vtsls = {

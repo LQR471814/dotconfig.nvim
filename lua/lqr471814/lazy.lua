@@ -63,6 +63,8 @@ require("lazy").setup({
     "NMAC427/guess-indent.nvim",
     -- make editing big files faster
     "LunarVim/bigfile.nvim",
+    -- latex support
+    "lervag/vimtex",
     -- switch between files
     require("lqr471814.plugins.harpoon"),
     -- fuzzy find

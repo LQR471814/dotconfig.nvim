@@ -74,3 +74,5 @@ vim.keymap.set({ "n", "v", "i", "x" }, "<C-z>", "<nop>")
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 vim.keymap.set("n", "<leader>ni", "<CMD>Neorg index<CR>")
 vim.keymap.set("n", "<leader>no", "<CMD>Neorg return<CR>")
+
+vim.g.vimtex_view_method = "zathura"
