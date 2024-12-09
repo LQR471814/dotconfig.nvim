@@ -3,12 +3,12 @@ return {
     config = function()
         require("autoclose").setup({
             keys = {
-                ["{"] = { escape = false, close = true, pair = "{}", disabled_filetypes = { "latex" } },
-                ["["] = { escape = false, close = true, pair = "[]", disabled_filetypes = { "latex" } },
-                ["("] = { escape = false, close = true, pair = "()", disabled_filetypes = { "latex" } },
-                ["'"] = { escape = false, close = true, pair = "''", disabled_filetypes = { "text", "markdown", "latex" } },
-                ['"'] = { escape = false, close = true, pair = '""', disabled_filetypes = { "latex" } },
-                ["`"] = { escape = false, close = true, pair = "``", disabled_filetypes = { "latex" } },
+                ["{"] = { escape = false, close = true, pair = "{}", disabled_filetypes = { "tex" } },
+                ["["] = { escape = false, close = true, pair = "[]", disabled_filetypes = { "tex" } },
+                ["("] = { escape = false, close = true, pair = "()", disabled_filetypes = { "tex" } },
+                ["'"] = { escape = false, close = true, pair = "''", disabled_filetypes = { "text", "markdown", "tex" } },
+                ['"'] = { escape = false, close = true, pair = '""', disabled_filetypes = { "tex" } },
+                ["`"] = { escape = false, close = true, pair = "``", disabled_filetypes = { "tex" } },
             },
         })
     end

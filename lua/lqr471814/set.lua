@@ -76,3 +76,4 @@ vim.keymap.set("n", "<leader>ni", "<CMD>Neorg index<CR>")
 vim.keymap.set("n", "<leader>no", "<CMD>Neorg return<CR>")
 
 vim.g.vimtex_view_method = "zathura"
+vim.g.tex_flavor = "latex"

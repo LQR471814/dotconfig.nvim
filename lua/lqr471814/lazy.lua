@@ -65,6 +65,8 @@ require("lazy").setup({
     "LunarVim/bigfile.nvim",
     -- latex support
     "lervag/vimtex",
+    -- luasnip
+    require('lqr471814.plugins.luasnip'),
     -- switch between files
     require("lqr471814.plugins.harpoon"),
     -- fuzzy find
