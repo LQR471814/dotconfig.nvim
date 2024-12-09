@@ -1,0 +1,5 @@
+snippet apt
+	- name: apt install ${0}
+	  apt:
+	    name: ${0}
+	    state: present
