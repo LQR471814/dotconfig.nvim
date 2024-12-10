@@ -57,7 +57,7 @@ return {
     )),
 
     -- usepackage
-    s({ trig = "usep", snippetType = "autosnippet" }, fmta(
+    s({ trig = "\\use", snippetType = "autosnippet" }, fmta(
         "\\usepackage{<>}",
         { i(1) }
     )),
