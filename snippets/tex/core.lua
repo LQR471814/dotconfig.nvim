@@ -63,8 +63,7 @@ return {
     )),
 
     -- integrals
-    s({ trig = "int", snippetType = "autosnippet" }, t("\\int")),
-    s({ trig = "dint", snippetType = "autosnippet" }, fmta(
+    s({ trig = "\\dint", snippetType = "autosnippet" }, fmta(
         "\\int_{<>}^{<>}",
         { i(1), i(2) }
     )),
