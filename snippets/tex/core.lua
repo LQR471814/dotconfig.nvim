@@ -99,4 +99,22 @@ return {
         "<>^{\\circ}",
         { f(function(_, snip) return snip.captures[1] end) }
     ))
+    -- texttt
+    s({ trig = "\\te", snippetType = "autosnippet" }, fmta(
+        "\\texttt{<>}",
+        { i(1) }
+    )),
+
+    -- vector component form
+    s({ trig = "\\av", snippetType = "autosnippet" }, fmta(
+        "\\langle <> \\rangle",
+        { i(1) }
+    )),
+
+    -- units
+    s({ trig = "::", snippetType = "autosnippet" }, fmta("\\; {<>}", { i(1) })),
+    s({ trig = ":s", snippetType = "autosnippet" }, t("\\; s")),
+    s({ trig = ":m", snippetType = "autosnippet" }, t("\\; m")),
+    s({ trig = ":v", snippetType = "autosnippet" }, t("\\; {m/s}")),
+    s({ trig = ":a", snippetType = "autosnippet" }, t("\\; {m/s}^2"))
 }

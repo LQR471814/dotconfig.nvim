@@ -12,6 +12,7 @@ local mapping = {
     p = "phi",
     r = "rho",
     s = "sigma"
+    d = "delta"
 }
 local result = {}
 
