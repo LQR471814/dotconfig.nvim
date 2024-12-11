@@ -79,3 +79,12 @@ vim.g.vimtex_view_method = "zathura"
 vim.g.tex_flavor = "latex"
 vim.opt.conceallevel = 1
 vim.g.tex_conceal = "abdmg"
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "tex",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en"
+        vim.keymap.set({"n", "i"}, "<C-;>", "<ESC>[s1z=`]a")
+    end
+})
