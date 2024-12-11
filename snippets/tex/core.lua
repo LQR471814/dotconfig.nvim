@@ -27,15 +27,15 @@ return {
     )),
 
     -- \sections
-    s({ trig = "\\se1", snippetType = "autosnippet" }, fmta(
+    s({ trig = "\\sec", snippetType = "autosnippet" }, fmta(
         "\\section{<>}",
         { i(1) }
     )),
-    s({ trig = "\\se2", snippetType = "autosnippet" }, fmta(
+    s({ trig = "\\se1", snippetType = "autosnippet" }, fmta(
         "\\subsection{<>}",
         { i(1) }
     )),
-    s({ trig = "\\se3", snippetType = "autosnippet" }, fmta(
+    s({ trig = "\\se2", snippetType = "autosnippet" }, fmta(
         "\\subsubsection{<>}",
         { i(1) }
     )),
