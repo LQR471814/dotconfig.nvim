@@ -93,4 +93,10 @@ return {
         "\\frac{<>}{<>}",
         { f(function(_, snip) return snip.captures[1] end), i(1) }
     )),
+
+    -- degrees
+    s({ trig = "([%d%}%) ])deg", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, fmta(
+        "<>^{\\circ}",
+        { f(function(_, snip) return snip.captures[1] end) }
+    ))
 }

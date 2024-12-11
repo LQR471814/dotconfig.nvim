@@ -10,7 +10,8 @@ local mapping = {
     t = "theta",
     l = "lambda",
     p = "phi",
-    r = "rho"
+    r = "rho",
+    s = "sigma"
 }
 local result = {}
 
