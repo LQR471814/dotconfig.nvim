@@ -98,7 +98,8 @@ return {
     s({ trig = "([%d%}%) ])deg", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, fmta(
         "<>^{\\circ}",
         { f(function(_, snip) return snip.captures[1] end) }
-    ))
+    )),
+
     -- texttt
     s({ trig = "\\te", snippetType = "autosnippet" }, fmta(
         "\\texttt{<>}",
