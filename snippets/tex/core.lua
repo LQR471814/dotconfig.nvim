@@ -8,12 +8,12 @@ local rep = require('luasnip.extras').rep
 
 return {
     -- \documentclass
-    s({ trig = "\\doc", snippetType = "autosnippet" }, {
+    s({ trig = "latex", snippetType = "autosnippet" }, {
         t("\\documentclass[a4paper, 12pt]{article}")
     }),
 
     -- \begin \end
-    s({ trig = "\\beg", snippetType = "autosnippet" }, fmta(
+    s({ trig = "beg", snippetType = "autosnippet" }, fmta(
         [[
         \begin{<>}
           <>
@@ -57,13 +57,13 @@ return {
     )),
 
     -- usepackage
-    s({ trig = "\\use", snippetType = "autosnippet" }, fmta(
+    s({ trig = "pkg", snippetType = "autosnippet" }, fmta(
         "\\usepackage{<>}",
         { i(1) }
     )),
 
     -- integrals
-    s({ trig = "\\dint", snippetType = "autosnippet" }, fmta(
+    s({ trig = "dint", snippetType = "autosnippet" }, fmta(
         "\\int_{<>}^{<>}",
         { i(1), i(2) }
     )),
@@ -101,13 +101,13 @@ return {
     )),
 
     -- texttt
-    s({ trig = "\\te", snippetType = "autosnippet" }, fmta(
+    s({ trig = "tmo", snippetType = "autosnippet" }, fmta(
         "\\texttt{<>}",
         { i(1) }
     )),
 
     -- vector component form
-    s({ trig = "\\av", snippetType = "autosnippet" }, fmta(
+    s({ trig = "<>", snippetType = "autosnippet" }, fmta(
         "\\langle <> \\rangle",
         { i(1) }
     )),
@@ -117,5 +117,8 @@ return {
     s({ trig = ":s", snippetType = "autosnippet" }, t("\\; s")),
     s({ trig = ":m", snippetType = "autosnippet" }, t("\\; m")),
     s({ trig = ":v", snippetType = "autosnippet" }, t("\\; {m/s}")),
-    s({ trig = ":a", snippetType = "autosnippet" }, t("\\; {m/s}^2"))
+    s({ trig = ":a", snippetType = "autosnippet" }, t("\\; {m/s}^2")),
+
+    -- vertical spacing
+    s({ trig = "vsp", snippetType = "autosnippet" }, fmta("\\vspace{<>}", { i(1) }))
 }
