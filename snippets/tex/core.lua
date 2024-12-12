@@ -35,7 +35,7 @@ return {
         "\\subsection{<>}",
         { i(1) }
     )),
-    s({ trig = "!#", snippetType = "autosnippet" }, fmta(
+    s({ trig = "!~", snippetType = "autosnippet" }, fmta(
         "\\subsubsection{<>}",
         { i(1) }
     )),
