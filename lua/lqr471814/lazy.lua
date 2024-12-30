@@ -16,9 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Actual plugin definition
 
 require("lazy").setup({
-    -- rename html tags
-    "windwp/nvim-ts-autotag",
-    -- -- theme
+    -- theme
     {
         "sho-87/kanagawa-paper.nvim",
         config = function()
@@ -51,20 +49,12 @@ require("lazy").setup({
             require("telescope").load_extension("textcase")
         end
     },
-    -- browser text editor
-    "subnut/nvim-ghost.nvim",
     -- pcre syntax
     "othree/eregex.vim",
-    -- activitywatch
-    "ActivityWatch/aw-watcher-vim",
-    -- support .fountain files
-    "kblin/vim-fountain",
     -- guess indentation config of a file
     "NMAC427/guess-indent.nvim",
     -- make editing big files faster
     "LunarVim/bigfile.nvim",
-    -- latex support
-    "lervag/vimtex",
     -- luasnip
     require('lqr471814.plugins.luasnip'),
     -- switch between files
@@ -73,8 +63,6 @@ require("lazy").setup({
     require("lqr471814.plugins.telescope"),
     -- search and replace
     require("lqr471814.plugins.spectre"),
-    -- multi-cursors
-    require("lqr471814.plugins.multicursors"),
     -- auto close brackets
     require("lqr471814.plugins.autoclose"),
     -- comments
@@ -83,8 +71,4 @@ require("lazy").setup({
     require("lqr471814.plugins.surround"),
     -- AST parsing/syntax highlighting
     require("lqr471814.plugins.treesitter"),
-    -- language server
-    require("lqr471814.plugins.lsp"),
-    -- flash.nvim
-    require("lqr471814.plugins.flash"),
 })
