@@ -35,7 +35,14 @@ require("lazy").setup({
     -- file explorer
     {
         'stevearc/oil.nvim',
-        opts = {},
+        opts = {
+            view_options = {
+                show_hidden = true
+            }
+        },
+        dependencies = {
+            {"echasnovski/mini.icons", opts = {}}
+        },
     },
     -- line wrap
     {
