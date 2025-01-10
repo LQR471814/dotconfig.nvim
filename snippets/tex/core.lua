@@ -8,9 +8,25 @@ local rep = require('luasnip.extras').rep
 
 return {
     -- \documentclass
-    s({ trig = "latex", snippetType = "autosnippet" }, {
-        t("\\documentclass[a4paper, 12pt]{article}")
-    }),
+    s({ trig = "latex", snippetType = "autosnippet" }, fmta([[
+        \documentclass[a4paper, 12pt]{article}
+
+        \usepackage{amsmath}
+
+        \begin{document}
+
+        \title{<>}
+        \author{<>}
+        \maketitle
+
+        <>
+
+        \end{document}
+    ]], {
+        i(1),
+        i(2),
+        i(3),
+    })),
 
     -- \begin \end
     s({ trig = "beg", snippetType = "autosnippet" }, fmta(
@@ -52,6 +68,18 @@ return {
         \[
           <>
         \]
+        ]],
+        { i(1) }
+    )),
+
+    -- aligned display mode math
+    s({ trig = "adm", snippetType = "autosnippet" }, fmta(
+        [[
+        \begin{aligned}
+        \[
+          <>
+        \]
+        \end{aligned}
         ]],
         { i(1) }
     )),
@@ -113,12 +141,21 @@ return {
     )),
 
     -- units
-    s({ trig = "::", snippetType = "autosnippet" }, fmta("\\; {<>}", { i(1) })),
-    s({ trig = ":s", snippetType = "autosnippet" }, t("\\; s")),
-    s({ trig = ":m", snippetType = "autosnippet" }, t("\\; m")),
-    s({ trig = ":v", snippetType = "autosnippet" }, t("\\; {m/s}")),
-    s({ trig = ":a", snippetType = "autosnippet" }, t("\\; {m/s}^2")),
+    s({ trig = "unit" }, fmta("\\; {<>}", { i(1) })),
+    s({ trig = "sec" }, t("\\; s")),
+    s({ trig = "meters" }, t("\\; m")),
+    s({ trig = "velocity" }, t("\\; {m/s}")),
+    s({ trig = "acceleration" }, t("\\; {m/s}^2")),
 
     -- vertical spacing
-    s({ trig = "vsp", snippetType = "autosnippet" }, fmta("\\vspace{<>}", { i(1) }))
+    s({ trig = "vsp", snippetType = "autosnippet" }, fmta("\\vspace{<>}", { i(1) })),
+
+    -- sqrt
+    s({ trig = "sqrt", snippetType = "autosnippet" }, fmta("\\sqrt{<>}", { i(1) })),
+
+    -- emphasis
+    s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>}", { i(1) })),
+
+    -- del
+    s({ trig = ";;d", snippetType = "autosnippet" }, t("\\nabla"))
 }
