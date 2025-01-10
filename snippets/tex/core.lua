@@ -75,11 +75,11 @@ return {
     -- aligned display mode math
     s({ trig = "adm", snippetType = "autosnippet" }, fmta(
         [[
-        \begin{aligned}
         \[
-          <>
+          \begin{aligned}
+            <>
+          \end{aligned}
         \]
-        \end{aligned}
         ]],
         { i(1) }
     )),
