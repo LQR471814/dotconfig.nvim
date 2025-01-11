@@ -154,7 +154,7 @@ return {
     s({ trig = "sqrt", snippetType = "autosnippet" }, fmta("\\sqrt{<>}", { i(1) })),
 
     -- emphasis
-    s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>}", { i(1) })),
+    s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>} ", { i(1) })),
 
     -- del
     s({ trig = ";;d", snippetType = "autosnippet" }, t("\\nabla"))
