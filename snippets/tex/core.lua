@@ -76,9 +76,9 @@ return {
     s({ trig = "adm", snippetType = "autosnippet" }, fmta(
         [[
         \[
-          \begin{aligned}
-            <>
-          \end{aligned}
+        \begin{aligned}
+          <>
+        \end{aligned}
         \]
         ]],
         { i(1) }
