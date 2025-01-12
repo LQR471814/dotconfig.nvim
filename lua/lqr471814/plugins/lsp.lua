@@ -42,6 +42,7 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup()
 
+            require("lspconfig").gopls.setup {}
             require("lspconfig").texlab.setup {}
             require("lspconfig").vtsls.setup({
                 settings = {
