@@ -12,6 +12,7 @@ return {
         \documentclass[a4paper, 12pt]{article}
 
         \usepackage{amsmath}
+        \usepackage{amssymb}
 
         \begin{document}
 
@@ -128,6 +129,12 @@ return {
         { f(function(_, snip) return snip.captures[1] end) }
     )),
 
+    -- text
+    s({ trig = "tno", snippetType = "autosnippet" }, fmta(
+        "\\text{<>}",
+        { i(1) }
+    )),
+
     -- texttt
     s({ trig = "tmo", snippetType = "autosnippet" }, fmta(
         "\\texttt{<>}",
@@ -157,5 +164,8 @@ return {
     s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>} ", { i(1) })),
 
     -- del
-    s({ trig = "del" }, t("\\nabla"))
+    s({ trig = "del" }, t("\\nabla")),
+
+    -- therefore symbol
+    s({ trig = "\\there", snippetType = "autosnippet" }, t("\\therefore"))
 }
