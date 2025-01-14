@@ -157,5 +157,5 @@ return {
     s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>} ", { i(1) })),
 
     -- del
-    s({ trig = ";;d", snippetType = "autosnippet" }, t("\\nabla"))
+    s({ trig = "del" }, t("\\nabla"))
 }

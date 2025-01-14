@@ -21,7 +21,7 @@ local i = 1
 for key, value in pairs(mapping) do
     result[i] = s(
         {
-            trig = ";" .. key,
+            trig = "'" .. key,
             snippetType = "autosnippet"
         },
         {
@@ -31,7 +31,7 @@ for key, value in pairs(mapping) do
     i = i + 1
     result[i] = s(
         {
-            trig = ";" .. string.upper(key),
+            trig = "'" .. string.upper(key),
             snippetType = "autosnippet"
         },
         {
