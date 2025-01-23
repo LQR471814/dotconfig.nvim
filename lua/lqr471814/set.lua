@@ -80,6 +80,15 @@ vim.g.vimtex_view_method = "zathura"
 vim.g.tex_flavor = "latex"
 vim.opt.conceallevel = 1
 vim.g.tex_conceal = "abdmg"
+vim.g.vimtex_compiler_latexmk = {
+    options = {
+        "-shell-escape",
+        "-verbose",
+        "-file-line-error",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+    },
+}
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "tex",
@@ -89,3 +98,4 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set({"n", "i"}, "<C-;>", "<ESC>[s1z=`]a")
     end
 })
+
