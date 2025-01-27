@@ -117,7 +117,49 @@ return {
         "\\frac{<>}{<>}",
         { i(1), i(2) }
     )),
-    s({ trig = "([a-zA-Z%d_%^-%+%*%}%)]+)/", regTrig = true, snippetType = "autosnippet" }, fmta(
+    s({
+        trig = "",
+        trigEngine = function(_, _2)
+            return function(line_to_cursor, _)
+                local len = string.len(line_to_cursor)
+
+                if string.sub(line_to_cursor, len, len) ~= "/" then
+                    return nil
+                end
+
+                local opened_parens = 0
+                local idx = len - 1
+                while idx >= 1 do
+                    local c = string.sub(line_to_cursor, idx, idx)
+
+                    if c == " " then
+                        break
+                    end
+
+                    if c == "}" then
+                        opened_parens = opened_parens + 1
+                    elseif c == "{" then
+                        opened_parens = opened_parens - 1
+                    end
+
+                    if opened_parens < 0 then
+                        break
+                    end
+
+                    idx = idx - 1
+                end
+
+                if idx == len - 1 then
+                    return nil
+                end
+
+                return string.sub(line_to_cursor, idx + 1, len), {
+                    string.sub(line_to_cursor, idx + 1, len - 1),
+                }
+            end
+        end,
+        snippetType = "autosnippet"
+    }, fmta(
         "\\frac{<>}{<>}",
         { f(function(_, snip) return snip.captures[1] end), i(1) }
     )),
