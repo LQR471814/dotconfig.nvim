@@ -225,19 +225,17 @@ return {
                 end
 
                 local current = string.sub(line_to_cursor, len, len)
-                if current == " " then
+                if
+                    current == " " or
+                    not string.match(current, "%w")
+                then
                     return nil
                 end
 
                 local prev = string.sub(line_to_cursor, len-1, len-1)
                 if
                     prev ~= "$" and
-                    prev ~= "}" and
-                    prev ~= "+" and
-                    prev ~= "-" and
-                    prev ~= "*" and
-                    prev ~= "/" and
-                    prev ~= "%"
+                    prev ~= "}"
                 then
                     return nil
                 end
