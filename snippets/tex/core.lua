@@ -164,12 +164,6 @@ return {
         { f(function(_, snip) return snip.captures[1] end), i(1) }
     )),
 
-    -- degrees
-    s({ trig = "([%d%}%) ])deg", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, fmta(
-        "<>^{\\circ}",
-        { f(function(_, snip) return snip.captures[1] end) }
-    )),
-
     -- text
     s({ trig = "tno", snippetType = "autosnippet" }, fmta(
         "\\text{<>}",
@@ -189,6 +183,10 @@ return {
     )),
 
     -- units
+    s({ trig = "\\deg", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, fmta(
+        "<>^{\\circ}",
+        { f(function(_, snip) return snip.captures[1] end) }
+    )),
     s({ trig = "unit" }, fmta("\\; {<>}", { i(1) })),
     s({ trig = "sec" }, t("\\; s")),
     s({ trig = "meters" }, t("\\; m")),
