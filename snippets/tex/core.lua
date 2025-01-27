@@ -242,6 +242,23 @@ return {
                     return nil
                 end
 
+                -- this ensures you don't start off with a space in front of every $$ in most cases
+                if prev == "$" then
+                    -- case: $$
+                    if current == "$" then
+                        return nil
+                    -- case: <whitespace>$<non-space>
+                    elseif len > 2 then
+                        local prevprev = string.sub(line_to_cursor, len-2, len-2)
+                        if prevprev == " " then
+                            return nil
+                        end
+                    -- case: <start of line>$<non-space>
+                    else
+                        return nil
+                    end
+                end
+
                 return current, { current }
             end
         end
