@@ -58,7 +58,7 @@ return {
 
     -- inline mode math
     s({ trig = "mk", snippetType = "autosnippet" }, fmta(
-        "$<>$ ",
+        "$<>$",
         { i(1) }
     )),
 
@@ -202,11 +202,48 @@ return {
     s({ trig = "sqrt", snippetType = "autosnippet" }, fmta("\\sqrt{<>}", { i(1) })),
 
     -- emphasis
-    s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>} ", { i(1) })),
+    s({ trig = "*E", snippetType = "autosnippet" }, fmta("\\emph{<>}", { i(1) })),
 
     -- del
     s({ trig = "del" }, t("\\nabla")),
 
     -- therefore symbol
-    s({ trig = "\\there", snippetType = "autosnippet" }, t("\\therefore"))
+    s({ trig = "\\there", snippetType = "autosnippet" }, t("\\therefore")),
+
+    s({ trig = "\\*", snippetType = "autosnippet" }, t("\\cdot ")),
+
+    -- ensure space exists after closing }, $ or any common operations
+    s({
+        trig = "",
+        snippetType = "autosnippet",
+        trigEngine = function(_, _2)
+            return function(line_to_cursor, _)
+                local len = string.len(line_to_cursor)
+
+                if len < 2 then
+                    return nil
+                end
+
+                local current = string.sub(line_to_cursor, len, len)
+                if current == " " then
+                    return nil
+                end
+
+                local prev = string.sub(line_to_cursor, len-1, len-1)
+                if
+                    prev ~= "$" and
+                    prev ~= "}" and
+                    prev ~= "+" and
+                    prev ~= "-" and
+                    prev ~= "*" and
+                    prev ~= "/" and
+                    prev ~= "%"
+                then
+                    return nil
+                end
+
+                return current, { current }
+            end
+        end
+    }, f(function(_, snip) return " " .. snip.captures[1] end))
 }
