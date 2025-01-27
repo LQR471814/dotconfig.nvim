@@ -240,19 +240,20 @@ return {
                     return nil
                 end
 
-                -- this ensures you don't start off with a space in front of every $$ in most cases
+                -- this ensures you don't put a space in $<here>$ and instead only out $$<here>
                 if prev == "$" then
-                    -- case: $$
-                    if current == "$" then
-                        return nil
-                    -- case: <whitespace>$<non-space>
-                    elseif len > 2 then
-                        local prevprev = string.sub(line_to_cursor, len-2, len-2)
-                        if prevprev == " " then
-                            return nil
+                    local count = 0
+                    local idx = 1
+                    while idx < len do
+                        if string.sub(line_to_cursor, idx, idx) == "$" then
+                            count = count + 1
                         end
-                    -- case: <start of line>$<non-space>
-                    else
+                        idx = idx + 1
+                    end
+
+                    -- if the current $ is unclosed in the text up to the cursor
+                    -- don't add a space after the $
+                    if count % 2 ~= 0 then
                         return nil
                     end
                 end
