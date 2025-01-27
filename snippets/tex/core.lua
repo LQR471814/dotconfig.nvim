@@ -11,8 +11,7 @@ return {
     s({ trig = "latex", snippetType = "autosnippet" }, fmta([[
         \documentclass[a4paper, 12pt]{article}
 
-        \usepackage{amsmath}
-        \usepackage{amssymb}
+        \usepackage{myconfig}
 
         \begin{document}
 
