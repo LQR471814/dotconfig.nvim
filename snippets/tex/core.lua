@@ -132,7 +132,8 @@ return {
                 while idx >= 1 do
                     local c = string.sub(line_to_cursor, idx, idx)
 
-                    if c == " " then
+                    -- ensure stopping at whitespace doesn't break any parenthesis
+                    if c == " " and opened_parens == 0 then
                         break
                     end
 
