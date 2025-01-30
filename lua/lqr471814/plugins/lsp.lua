@@ -42,7 +42,24 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup()
 
-            require("lspconfig").nixd.setup {}
+            require("lspconfig").nixd.setup {
+                cmd = { "nixd" },
+                settings = {
+                    nixd = {
+                        nixpkgs = {
+                            expr = "import <nixpkgs> { }",
+                        },
+                        formatting = {
+                            command = { "nixfmt" },
+                        },
+                        options = {
+                            home_manager = {
+                                expr = "(import <home-manager/modules> { configuration = ~/.config/home-manager/home.nix; pkgs = import <nixpkgs> {}; }).options",
+                            },
+                        },
+                    },
+                },
+            }
             require("lspconfig").gopls.setup {}
             require("lspconfig").texlab.setup {}
             require("lspconfig").vtsls.setup({
