@@ -5,6 +5,7 @@ local t = ls.text_node
 local mapping = {
     a = "alpha",
     b = "beta",
+    c = "chi",
     g = "gamma",
     o = "omega",
     t = "theta",
