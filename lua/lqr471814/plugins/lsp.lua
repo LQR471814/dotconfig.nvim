@@ -42,6 +42,7 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup()
 
+            require("lspconfig").svelte.setup {}
             require("lspconfig").templ.setup {}
             require("lspconfig").ruff.setup {}
             require("lspconfig").nixd.setup {
