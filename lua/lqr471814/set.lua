@@ -37,7 +37,7 @@ setIndent({
     "*.java",
     "*.toml",
 }, 4)
-setIndent({ "*.go", "*.templ", "Makefile*", "*.json5", "*.cu", "*.cpp", "*.hpp", "*.c", "*.h" }, 4, true)
+setIndent({ "*.css", "*.go", "*.templ", "Makefile*", "*.json5", "*.cu", "*.cpp", "*.hpp", "*.c", "*.h" }, 4, true)
 
 vim.opt.smartindent = true
 
